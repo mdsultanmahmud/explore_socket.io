@@ -1,0 +1,14 @@
+server side pre-defined events
+1. connection
+2. disconnect
+3. reconnect
+4. message
+5. ping
+6. join
+7. leave
+
+client side pre-defined events
+1. connect 
+2. reconnect
+3. connect-error
+4. connect-timeout
