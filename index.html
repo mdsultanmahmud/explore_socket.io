@@ -8,12 +8,32 @@
 </head>
 <body>
     <h1>Hello, i'm a new learner of socket</h1>
+    <h2 id="time">Time is:</h2>
+    <p id="my_events"></p>
+    <input type="text" id="send_msg" placeholder="enter your message" required>
+    <button onclick="sendMsg()">send</button>
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let socket = io()
-        socket.on('message', data =>{
-            console.log(data)
-        })
+        // receive data from server 
+        // socket.on('message', data =>{
+        //     document.getElementById('time').innerHTML = data
+        // })
+        // socket.on('myEvnts', msg =>{
+        //     document.getElementById("my_events").innerHTML = msg
+        // })
+
+
+        // send data to server 
+        // function sendMsg(){
+        //     const message = document.getElementById('send_msg').value 
+        //     console.log(message)
+        //     // socket.send(message) //with pre-defined events
+        //     //with custom events
+        //     socket.emit('send_msg', message)
+        // }
+
+        
     </script>
 </body>
 </html>
