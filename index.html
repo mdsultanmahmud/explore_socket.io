@@ -15,7 +15,9 @@
     <p id="broadcasting"></p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-        let socket = io()
+        // let socket = io()
+        let socket = io('/buy')
+        // let socket = io('/sell')
         // receive data from server 
         // socket.on('message', data =>{
         //     document.getElementById('time').innerHTML = data
@@ -35,7 +37,7 @@
         // }
 
         // we are going to learn about broadcasting 
-        socket.on('myBroadcasting', data =>{
+        socket.on('my_events', data =>{
             document.getElementById('broadcasting').innerHTML = data
         })
     </script>

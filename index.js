@@ -43,8 +43,23 @@ io.on("connection", (socket) =>{
     // })
 
     // learning about broadcasting
-    io.sockets.emit("myBroadcasting", "Hello everyone, how are you?") 
+    // io.sockets.emit("myBroadcasting", "Hello everyone, how are you?") 
+
+        
    
+})
+
+// learning namespace 
+const sellnsp = io.of('/sell')
+sellnsp.on('connection', () =>{
+    console.log("connect user from sell namespace")
+    sellnsp.emit("my_events", "Hello data passing form sell namespace to clients")
+})
+
+const buynsp = io.of('/buy')
+buynsp.on("connection", () =>{
+    console.log("connect user from buy namespace")
+    buynsp.emit("my_events", "data passing from buy namespace to clients")
 })
 
 app.get('/', (req,res) =>{
