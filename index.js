@@ -10,7 +10,11 @@ const io = new Server(expressServer)
 
 io.on("connection", (socket) =>{
     console.log("User connected")
+    socket.on("disconnect", () =>{
+        console.log('user disconnected')
+    })
     // pass a data from srver to client 
+
     // setTimeout(() =>{
     //     socket.send("I'm learning socket.io===> data comes from server to clients")
     // }, 6000)
@@ -24,10 +28,12 @@ io.on("connection", (socket) =>{
     //     socket.send(date)
     // },4000)
 
+
     // socket.emit("myEvnts", "Data transfer from server to clients with custom events")
+        //with pre-defined events
 
     // receive data form clients side 
-    // socket.on("message", msg =>{ //with pre-defined events
+    // socket.on("message", msg =>{ 
     //     console.log(msg)
     // })
 
@@ -36,9 +42,9 @@ io.on("connection", (socket) =>{
     //     console.log(msg)
     // })
 
-    socket.on("disconnect", () =>{
-        console.log('user disconnected')
-    })
+    // learning about broadcasting
+    io.sockets.emit("myBroadcasting", "Hello everyone, how are you?") 
+   
 })
 
 app.get('/', (req,res) =>{

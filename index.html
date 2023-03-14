@@ -12,6 +12,7 @@
     <p id="my_events"></p>
     <input type="text" id="send_msg" placeholder="enter your message" required>
     <button onclick="sendMsg()">send</button>
+    <p id="broadcasting"></p>
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let socket = io()
@@ -33,7 +34,10 @@
         //     socket.emit('send_msg', message)
         // }
 
-        
+        // we are going to learn about broadcasting 
+        socket.on('myBroadcasting', data =>{
+            document.getElementById('broadcasting').innerHTML = data
+        })
     </script>
 </body>
 </html>
